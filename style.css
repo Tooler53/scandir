@@ -1,0 +1,16 @@
+.paragraph{
+
+}
+.includedtext{
+    color: #c0392b;
+}
+.includedtext>ul>li{
+    color: #2980b9;
+}
+.includedtext>hr{
+    border-top: 2px dotted #2ecc71;
+    border-right: none;
+    border-left: none;
+    border-bottom: none;
+    height: 1px;
+}

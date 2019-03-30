@@ -1,0 +1,37 @@
+<?php
+if($counter == 1){
+    require_once "Logic/ScanDir.php";
+    $scan = new ScanDir();
+    $array_all = $scan->scan();
+}
+else{
+require_once "Logic/SqlCommands.php";
+$data = new SqlCommands();
+$array_all = $data->createCommand(true);
+}
+?>
+<content>
+    <form action='Logic/UpdateData.php' method='post'>
+        <div style='margin: auto; width: 50vh'>
+            <table border='1' style='width:50vh;margin:auto' cellpadding='5'>
+                <tr>
+                    <th>Название файла/папки</th>
+                    <th>Размер</th>
+                    <th>Тип</th>
+                    <th>Дата последней модификации</th>
+                </tr>
+                <?php
+            for ($i = 0; $i < count($array_all); $i++) {?>
+                <tr>
+                    <td><?=$array_all[$i]['filename']?></td>
+                    <td><?=$array_all[$i]['filesize']?></td>
+                    <td><?=$array_all[$i]['filetype']?></td>
+                    <td><?=$array_all[$i]['filetime']?></td>
+                </tr>
+                <?}?>
+
+            </table>
+
+            <input type='submit' value='Обновить данные' style='margin-top: 20px;'></div>
+    </form>
+</content>
