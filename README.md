@@ -5,7 +5,7 @@
 в корне сайта.
 Для обновления данных есть кнопка которая инициирует процесс считывания и записи информации в базу данных.
 
-Скрипт для таблицы в базе данных mysql:
+Перед первым запуском необходимо выполнить данные скрипты в базе данных mysql:
 
 CREATE DATABASE IF NOT EXISTS `mydb` DEFAULT CHARACTER SET cp1251 COLLATE cp1251_general_ci;
 USE `mydb`;
@@ -19,3 +19,7 @@ CREATE TABLE IF NOT EXISTS `dirfiles` (
   `filetime` timestamp NOT NULL DEFAULT current_timestamp() ON UPDATE current_timestamp(),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB AUTO_INCREMENT=0 DEFAULT CHARSET=cp1251;
+
+Далее необходимо поменять настройки подключения через PDO к вашему серверу с базой данных по пути корень_сайта/Logic/SqlCommands.php.
+
+После данных операций можно открывать страницу.
